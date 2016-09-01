@@ -1,0 +1,106 @@
+# git branch
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+function git-create-apache-license-2.0() {
+	# Check hub is installed
+	command -v hub >/dev/null 2>&1 || { echo >&2 "hub is required to run this command, please install it with brew install hub"; return; }
+
+	# Check if github repository already exists
+	local GITHUB_RESPONSE=$(curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://github.com/andidev/$PROJECT_NAME)
+	if [ "$GITHUB_RESPONSE" != "404" ]; then
+		local GITHUB_REPOSITORY_EXISTS=true
+	fi
+	if [ $# -eq 0 ] || [ -z "$1" ]; then
+		# No or blank string argument provided, create repository in current directory
+		local PROJECT_NAME=${PWD##*/}
+		echo "Creating git repository with project name $PROJECT_NAME in current directory"
+
+		# Check if local git repository already exists
+		if [ -d ".git" ]; then
+			local LOCAL_GIT_REPOSITORY_EXISTS=true
+		fi
+	else
+		# Project name provided in argument, create repository in new folder
+		local PROJECT_NAME=$1
+		echo "Creating git repository with project name $PROJECT_NAME"
+
+		if [ -d "$PROJECT_NAME" ]; then
+		    echo "Directory with name $PROJECT_NAME already exists, please remove it or choose another name"
+		    return
+		fi
+
+		echo mkdir $PROJECT_NAME
+		mkdir $PROJECT_NAME
+
+		echo cd $PROJECT_NAME
+		cd $PROJECT_NAME
+	fi
+
+	if [[ $GITHUB_REPOSITORY_EXISTS && $LOCAL_GIT_REPOSITORY_EXISTS ]]; then
+	    echo "Github repository with name $PROJECT_NAME already exists, please remove it or choose another name"
+	    return
+	fi
+
+	if [ -f "README.md" ]; then
+		if grep -q http://www.apache.org/licenses/LICENSE-2.0 "README.md"; then
+			echo "README.md already contains a reference to the Apache License 2.0"
+			echo "Skipped appending license reference to README.md"
+		else
+			echo "README.md already exists"
+			echo "Appending reference to the Apache License 2.0 to file README.md"
+			(echo ""; curl https://raw.github.com/andidev/apache-license-2.0/master/README.md) >> README.md
+			README_FILE_UPDATED=true
+	 	fi
+	else
+		echo "Creating file README.md"
+		(echo $PROJECT_NAME; echo "==================="; curl https://raw.github.com/andidev/apache-license-2.0/master/README.md) > README.md
+		README_FILE_CREATED=true
+	fi
+
+	if [ -f "LICENSE" ]; then
+		echo "LICENSE already exists"
+		echo "Skipped creating LICENSE file"
+	else
+		# LICENSE file does not exists, get and create License
+		echo "Creating file LICENSE"
+		curl https://raw.github.com/andidev/apache-license-2.0/master/LICENSE > LICENSE
+		LICENSE_FILE_CREATED=true
+	fi
+
+	# Create repository
+	if [ -d ".git" ]; then
+	    echo "Git repository is already exists"
+	    echo "Skipped git init"
+	else
+		echo git init
+		git init
+	fi
+
+	if $LICENSE_FILE_CREATED; then
+		echo git add LICENSE
+		git add LICENSE
+	fi
+
+	if $README_FILE_CREATED; then
+		echo git add README.md
+		git add README.md
+	fi
+
+	if [[ $LICENSE_FILE_CREATED || $README_FILE_CREATED || $README_FILE_UPDATED ]]; then
+		echo git commit LICENSE README.md -m "Added Apashe License 2.0"
+		git commit LICENSE README.md -m "Added Apashe License 2.0"
+	fi
+
+	if $GITHUB_REPOSITORY_EXISTS; then
+	    echo "Github repository already exists"
+	    echo "Skipped creating and pushing to repository"
+	else
+		echo hub create
+		hub create
+
+		echo git push -u origin master
+		git push -u origin master
+	fi
+}

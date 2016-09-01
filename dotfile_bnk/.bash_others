@@ -1,0 +1,2 @@
+export LIQUIBASE_HOME=/usr/local/Cellar/liquibase/3.3.0/libexec
+export PATH=$PATH:/usr/local/share/npm/bin

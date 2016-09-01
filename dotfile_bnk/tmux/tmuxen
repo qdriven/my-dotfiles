@@ -1,0 +1,24 @@
+#! /bin/sh
+
+cmd=${which tmux}
+session=${hostname -s}
+
+if [ -z $cmd]; then
+  echo "please install tmux first"
+  exit 1
+fi
+
+$cmd has -t $session 2>/dev/null
+
+if [ $? !=0 ]; then
+  $cmd new -d -n vim -s $session "vim"
+  $cmd neww -n ipy -t $session "ipython"
+  $cmd neww -n irc -t $session "irssi"
+  $cmd neww -n top -t $session "htop"
+  # $cmd splitw -v -p 98 -t $session "zsh"
+  $cmd neww -n zsh -t $session "zsh"
+  $cmd selectw -t $session:5
+fi
+
+$cmd att -t $session
+exit 0 

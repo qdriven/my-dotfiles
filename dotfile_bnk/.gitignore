@@ -1,0 +1,72 @@
+# Compiled Python files
+*.pyc
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# java relative
+.idea/
+*.iml
+*.class
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Logs and databases #
+######################
+*.log
+*.sqlite
+*.out
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+*.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+*~
+
+# Maven #
+#########
+.classpath
+.project
+.settings/
+target/
+
+# NetBeans #
+############
+nbproject/private/
+nb-configuration.xml
+nbactions.xml
+
+# SASS #
+########
+sasswatch
+
+# Eniro #
+#########
+node_modules
+
+# Eniro #
+#########
+src/main/webapp/META-INF/
+src/main/webapp/WEB-INF/runtime/config/application_local.properties

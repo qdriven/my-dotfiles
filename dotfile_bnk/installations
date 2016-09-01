@@ -1,0 +1,126 @@
+Install
+
+Chrome
+https://www.google.com/intl/sv/chrome/browser/?hl=sv
+
+VLC
+http://www.videolan.org/vlc/
+
+Total Finder (Add to System Preferenses/Users & Groups/Login Items)
+http://totalfinder.binaryage.com
+
+Total Terminal (Add to System Preferenses/Users & Groups/Login Items)
+http://totalterminal.binaryage.com/
+
+DTerm  (Add to System Preferenses/Users & Groups/Login Items)
+http://decimus.net/DTerm
+
+CD To (Drag & Drop to Finder Toolbar)
+http://code.google.com/p/cdto/
+
+Touch Here (Drag & Drop to Finder Toolbar)
+http://www.codium.co.nz/touch_here_app/
+
+Sublime Text 2 (Add or buy licence)
+http://www.sublimetext.com/2
+
+GITX (L)
+http://gitx.laullon.com/
+
+TextWrangler
+http://www.barebones.com/products/textwrangler/
+
+Firefox
+http://www.mozilla.org/sv-SE/firefox/new/
+
+NetBeans
+http://netbeans.org/downloads/
+	Add:
+
+	To:
+	/Applications/NetBeans/NetBeans\ 7.2.app/Contents/Resources/NetBeans/etc/netbeans.conf
+	(see http://stackoverflow.com/questions/673646/how-can-i-prevent-permgen-space-errors-in-netbeans?answertab=votes#tab-top)
+	(see http://performance.netbeans.org/howto/jvmswitches/)
+
+Virtual Box
+https://www.virtualbox.org/
+
+Libre Office
+http://www.libreoffice.org/download/
+
+Vagrant
+http://vagrantup.com/
+
+Home Brew
+http://mxcl.github.com/homebrew/
+	git
+	hub
+	node
+	bash-completion
+		Add the following lines to your ~/.bash_profile:
+ 		if [ -f $(brew --prefix)/etc/bash_completion ]; then
+   			 . $(brew --prefix)/etc/bash_completion
+  		fi
+	svn
+	colorsvn
+		Add the following lines to your ~/.bash_profile:
+		alias svn=colorsvn
+	tree
+	fortune
+	skype
+	ssh-copy-id
+	(no ruby throgh brew, use rvm instead)
+	gradle
+	source-highlight
+		Add the following to .bash_profile
+		export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+		export LESS=' -R '
+		alias ccat='/usr/local/bin/src-hilite-lesspipe.sh pom.xml'
+
+	dev-tools
+		solr
+		activemq
+		maven
+		tomcat
+		jmeter
+		mysql
+			post installation (see brew info msql):
+			unset TMPDIR
+			mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
+
+RVM
+https://rvm.io/rvm/install/
+
+Ruby Gems
+	gem install librarian
+
+Adium
+http://adium.im/
+
+Logitech Control Center
+http://www.logitech.com/en-us/support/mice/831?section=downloads&bit=&osid=21&file=http%3A%2F%2Fwww.logitech.com%2Fpub%2Ftechsupport%2Fmouse%2Fmac%2Flcc351.zip
+
+Home Brew
+	transmission
+
+Transmission Remote GUI
+http://code.google.com/p/transmisson-remote-gui/
+
+Sequel Pro
+http://www.sequelpro.com/
+
+Spotify
+http://www.spotify.com/se/
+
+Yeoman
+http://yeoman.io
+	Compass
+		sudo gem install compass
+	JPEGTran
+		brew install jpeg-turbo && brew link jpeg-turbo
+	OptiPNG
+		brew install optipng
+	PhantomJS
+		brew install phantomjs
+	Yeoman
+		sudo npm install -g yeoman

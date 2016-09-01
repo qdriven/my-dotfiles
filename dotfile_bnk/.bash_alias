@@ -1,0 +1,96 @@
+# Add confirm dialog to removal, copy, move commands
+#alias rm='rm -i'
+alias rmdsstore='find . -name '"'"'*.DS_Store'"'"' -type f -delete'
+#alias cp='cp -i'
+#alias mv='mv -i'
+
+# Alias ls
+alias ls='ls -hF'			# Make folders print with a slash, e.g. folder-name/
+alias ll='ls -hl' 			# Shortcut alias to ls list
+alias la='ls -Al'         	# show hidden files
+alias lx='ls -lXB'          # sort by extension
+alias lk='ls -lSr'          # sort by size, biggest last
+alias lc='ls -ltcr'         # sort by and show change time, most recent last
+alias lu='ls -ltur'         # sort by and show access time, most recent last
+alias lt='ls -ltr'          # sort by date, most recent last
+alias lm='ls -al |more'     # pipe through 'more'
+alias lr='ls -lR'           # recursive ls
+#alias tree='tree -Csu'      # nice alternative to 'recursive ls'
+function ll(){ ls -l "$@"| egrep "^d" ; ls -lXB "$@" 2>&-| \
+                egrep -v "^d|total "; }
+
+# Colorized grep
+alias grep="grep --color"
+alias zgrep="zgrep --color=always"
+
+# Alias hub to git (https://github.com/defunkt/hub#aliasing)
+eval "$(hub alias -s)"
+
+# Alias SVN Colors
+alias svn=colorsvn
+
+# ssh remote command call
+alias sshremotecommand='ssh -t'
+
+alias openssl-generate-key='openssl genrsa -out key.pem 1024'
+alias openssl-generate-request='openssl req -new -key key.pem -out request.pem'
+alias openssl-generate-certificate='openssl x509 -req -days 30 -in request.pem -signkey key.pem -out certificate.pem'
+
+# Cd to
+alias fn='cd ~/Workspace/forskolenatet'
+alias gj='cd ~/Workspace/generator-jhipster'
+alias we='cd ~/Workspace/webdriverextensions'
+alias wep='cd ~/Workspace/webdriverextensions-maven-plugin'
+alias wepr='cd ~/Workspace/webdriverextensions-maven-plugin-repository'
+alias wea='cd ~/Workspace/webdriverextensions-archetype-quickstart'
+alias weq='cd ~/Workspace/webdriverextensions-archetype-quickstart'
+
+# Maven aliases
+alias mc='mvn clean'
+alias mi='mvn install'
+alias mis='mvn install -DskipTests'
+alias mci='mvn clean install'
+alias mcis='mvn clean install -DskipTests'
+alias mrp='mvn release:prepare -P release'
+alias mr='mvn release:perform -P release'
+alias mrps='mvn release:prepare -Darguments="-DskipTests" -P release'
+alias mrs='mvn release:perform -Darguments="-DskipTests" -P release'
+alias mvn-liquibase-export-date='mvn liquibase:generateChangeLog -Dliquibase.dataDir="src/main/resources/config/liquibase/data" -Dliquibase.diffExcludeObjects="JHI_USER,JHI_AUTHORITY,JHI_USER_AUTHORITY,JHI_PERSISTENT_TOKEN,JHI_PERSISTENT_AUDIT_EVENT,JHI_PERSISTENT_AUDIT_EVT_DATA" -Dliquibase.driver="org.h2.Driver" -Dliquibase.url="jdbc:h2:file:./target/h2db/db:jhipster" -Dliquibase.diffTypes="data"'
+
+# Jhipster aliases
+alias jh='yo jhipster'
+alias jhe='yo jhipster:entity'
+alias jhl='yo jhipster:languages'
+alias jhrun='mvn clean;mvn spring-boot:run'
+alias jhrunp='mvn clean;mvn spring-boot:run -Pprod'
+alias jhwar='mvn -Pprod package'
+alias jhrunwar='java -jar target/jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod'
+alias jhrunf='mvn -Pfast spring-boot:run'
+alias jhruncf='mvn clean;mvn -Pfast spring-boot:run'
+alias jhdeploy='yo jhipster:heroku'
+alias jhredeploy='mvn install -Pprod -DskipTests;heroku deploy:jar --jar target/*.war'
+
+# Grunt aliases
+alias gs='grunt serve'
+alias gc='grunt compass'
+alias gus='gulp serve'
+
+# Angular Fullstack
+alias af='yo angular-fullstack'
+alias afr='yo angular-fullstack:route'
+alias afc='yo angular-fullstack:controller'
+alias afd='yo angular-fullstack:directive'
+alias aff='yo angular-fullstack:filter'
+alias afs='yo angular-fullstack:service'
+alias afdecorator='yo angular-fullstack:decorator'
+
+alias sshremotecommand='ssh -t'
+
+# Postgres
+alias postgresstart='postgres -D /usr/local/var/postgres'
+
+# Heroku
+alias herokuredeploy='mvn install -Pprod -DskipTests;heroku deploy:jar --jar target/*.war'
+alias herokulogs='heroku logs --tail'
+alias herokudbreset='heroku pg:reset DATABASE_URL'
+alias herokudbremovelock='heroku pg:psql -c "update databasechangeloglock set locked=false;"'

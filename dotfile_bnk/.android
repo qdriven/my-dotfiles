@@ -1,0 +1,113 @@
+export ANDROID_HOME=/usr/local/opt/android-sdk
+launchctl setenv STUDIO_JDK $(/usr/libexec/java_home)/../..
+
+# Get path to bash_extensions
+DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Load aliases
+if [ -r $DIR/.bash_alias ]
+then
+	. $DIR/.bash_alias
+fi
+
+# Load functions
+if [ -r $DIR/.bash_function ]
+then
+	. $DIR/.bash_function
+fi
+
+# Load brew settings
+if [ -r $DIR/.bash_brew ]
+then
+	. $DIR/.bash_brew
+fi
+
+# Load git-aware-prompt
+if [ -r $DIR/.bash_git ]
+then
+	. $DIR/.bash_git
+fi
+
+# Load promtline colors
+if [ -r $DIR/.bash_promtline_colors ]
+then
+	. $DIR/.bash_promtline_colors
+fi
+
+# Load ls colors
+if [ -r $DIR/.bash_ls_colors ]
+then
+	. $DIR/.bash_ls_colors
+fi
+
+# Load less colors
+if [ -r $DIR/.bash_less_colors ]
+then
+	. $DIR/.bash_less_colors
+fi
+
+# Load history config
+if [ -r $DIR/.bash_history_config ]
+then
+	. $DIR/.bash_history_config
+fi
+
+# Tell a fortune for thoose who need it (install by "brew install fortune")
+fortune=`which fortune`
+if [ -x "${fortune}" ]; then
+    COLOR='\033[32m'	# Dull Grey
+    echo -e "${COLOR}`${fortune} -s`"     # Makes our day a bit more fun.... :-)
+fi
+
+# Enable bash completion (install by "brew install bash-completion")
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+	. $(brew --prefix)/etc/bash_completion
+fi
+
+
+# Enable user bin
+if [ -d $DIR/.bin ]; then
+	export PATH=$DIR/.bin:$PATH
+fi
+
+# Load java config
+if [ -r $DIR/.bash_java ]
+then
+	. $DIR/.bash_java
+fi
+
+# Load maven config
+if [ -r $DIR/.bash_maven ]
+then
+	. $DIR/.bash_maven
+fi
+
+# Load node config
+if [ -r $DIR/.bash_node ]
+then
+	. $DIR/.bash_node
+fi
+
+# Load jenkins config
+if [ -r $DIR/.bash_jenkins ]
+then
+	. $DIR/.bash_jenkins
+fi
+
+# Load android sdk config
+if [ -r $DIR/.bash_android ]
+then
+	. $DIR/.bash_android
+fi
+
+# Load liquibase config
+if [ -r $DIR/.bash_liquibase ]
+then
+	. $DIR/.bash_liquibase
+fi
+
+# Load lunchy config
+if [ -r $DIR/.bash_lunchy ]
+then
+	. $DIR/.bash_lunchy
+fi

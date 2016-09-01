@@ -1,0 +1,14 @@
+# from brew info
+#
+# Note: When using launchctl the port will be 8080.
+#
+# To have launchd start jenkins at login:
+#     ln -sfv /usr/local/opt/jenkins/*.plist ~/Library/LaunchAgents
+# Then to load jenkins now:
+#     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist
+# Or, if you don't want/need launchctl, you can just run:
+#     java -jar /usr/local/opt/jenkins/libexec/jenkins.war
+
+
+alias jenkins-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist"
+alias jenkins-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist"
