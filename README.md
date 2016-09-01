@@ -2,8 +2,13 @@
 
 I don't want to repeat myself, so send these files to github.
 
-## Why
+## Introduction
 
+TO DO
+
+## Notes 
+
+- 2016-09-01 init project
 
 
 
