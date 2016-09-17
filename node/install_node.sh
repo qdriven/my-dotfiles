@@ -19,3 +19,4 @@ npm install gulp -g
 # npm install yeoman -g
 
 npm install -g jslint
+npm install -g webpack
