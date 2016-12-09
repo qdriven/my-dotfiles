@@ -1,0 +1,7 @@
+[alias]
+
+  l = log --pretty=online -n 20 --graph --abbrev-commit
+  s = status -s
+  d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+  di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear ; d"
+  p = !"git pull;git submodule forearch git pull origin master"
