@@ -15,3 +15,6 @@ echo "alias pip=\"pip --trusted-host pypi.douban.com\""  >>~/.config/fish/config
 # set python3
 echo "alias pvm = \"python3 -m venv\"" >> ~/.zshrc 
 echo "alias pvm = \"python3 -m venv\"" >> ~/.config/fish/config.fish
+
+echo "alias flush_dns=\"sudo killall -HUP mDNSResponder\""
+
