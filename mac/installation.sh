@@ -59,4 +59,7 @@ curl -fsSL https://raw.githubusercontent.com/supermarin/Alcatraz/deploy/Scripts/
 brew install mysql
 
 # install mongodb
-brew install mongodb
+# brew install mongodb
+
+# install httpie
+brew install httpie
