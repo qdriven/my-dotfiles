@@ -60,6 +60,7 @@ brew install mysql
 
 # install mongodb
 # brew install mongodb
-
+# install jq
+brew install jq
 # install httpie
 brew install httpie
