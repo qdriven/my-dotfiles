@@ -39,15 +39,15 @@ brew install autojump
 echo " config autojump for zsh"
 eco "[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh" >> ~/.zshrc
  "6. install fish"
-brew install fish
-echo "[ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish" >> ~/.config/fish/config.fish
+# brew install fish
+# echo "[ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish" >> ~/.config/fish/config.fish
 
 # install mvim
 echo "6. install mvim"
 brew install macvim --with-cscope --with-lua
 brew linkapps macvim
 # install groovy and gradle
-brew install groovy
+# brew install groovy
 brew install gradle
 # copy iterm2-color-schemas
 # git clone https://github.com/mbadolato/iTerm2-Color-Schemes.git /Users/patrick/settings
@@ -56,7 +56,7 @@ brew install tmux
 curl -fsSL https://raw.githubusercontent.com/supermarin/Alcatraz/deploy/Scripts/install.sh | sh
 
 # install mysql
-brew install mysql
+# brew install mysql
 
 # install mongodb
 # brew install mongodb
