@@ -42,9 +42,8 @@ After run this script, following components are installed:
 
 ## Testing Tools
 
-- [JEMTER]()
-- [POSTMAN]()
-- 
+- [JEMTER]
+- [POSTMAN]
 
 ## productivity tools
 
