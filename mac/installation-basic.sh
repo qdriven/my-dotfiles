@@ -1,7 +1,11 @@
 #!/bin/sh
 
+## install wget
+sudo chown -R $(whoami) /usr/local/Cellar/libidn2/2.2.0_1
+brew install wget
 # install Homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # install tools, brew install tools in /usr/local/Cellar
 brew update
@@ -11,11 +15,12 @@ brew install curl
 
 #install go
 brew install golang
+echo 'go version is'`go version`
 
 # install other mac tools
-brew install tags
-brew install CMake
-brew install the_silver_searcher
+# brew install tags
+# brew install CMake
+# brew install the_silver_searcher
 brew install graphviz
 
 # install emacs
@@ -36,9 +41,11 @@ echo "4. install on-my-zsh"
 curl -L http://install.ohmyz.sh | sh
 echo "5.install auto jump"
 brew install autojump
+
 echo " config autojump for zsh"
-eco "[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh" >> ~/.zshrc
- "6. install fish"
+echo "[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh" >> ~/.zshrc
+echo "alias j='autojump'"
+# "6. install fish"
 # brew install fish
 # echo "[ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish" >> ~/.config/fish/config.fish
 
@@ -64,3 +71,7 @@ curl -fsSL https://raw.githubusercontent.com/supermarin/Alcatraz/deploy/Scripts/
 brew install jq
 # install httpie
 brew install httpie
+brwe install wget
+
+
+

@@ -1,0 +1,1 @@
+echo 'export GOPATH="~/go:$PATH"' >> ~/.zshrc
