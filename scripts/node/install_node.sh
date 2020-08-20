@@ -20,3 +20,5 @@ npm install gulp -g
 
 npm install -g jslint
 npm install -g webpack
+# install tldr
+npm install tldr -g
