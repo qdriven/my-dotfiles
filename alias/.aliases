@@ -40,6 +40,6 @@ alias egrep='egrep --color=auto'
 
 # Get week number
 alias week='data +%V'
-
+alias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 # stopwatch
 alias timer='echo"Timer started,stop with Ctrl-D." && date && time cat && date'
