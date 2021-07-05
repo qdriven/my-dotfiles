@@ -1,5 +1,11 @@
 #!/bin/sh
 
+## setup homebrew
+BREW_TYPE="homebrew"
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/${BREW_TYPE}-core.git"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/${BREW_TYPE}-bottles"
+
 ## install wget
 sudo chown -R $(whoami) /usr/local/Cellar/libidn2/2.2.0_1
 brew install wget
