@@ -4,12 +4,14 @@ curl -L get.rvm.io | bash -s stable
 rvm list known
 rvm install 3.0.0
 rvm list
-## set default ruby version
-rvm 3.0.0 --default
+
+## install rbenv
+brew install rbenv
+
 # run shell in ruby
 rbenv shell 3.0.0
 ## set default ruby version
-rvm 3.0.0 --default
+rvm alias create default 3.0.0
 
 ## set ruby source
 gem source -r https://rubygems.org/
